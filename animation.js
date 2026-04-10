@@ -6,11 +6,12 @@ export async function screen_making() {
 
     const rect = mainElement.getBoundingClientRect();
     const h = rect.height / 2;
-    mainElement.style.boxShadow = 'none';
+    mainElement.classList.remove('shadow');
 
     // Делаем два скриншота (консоль будет выводить лог html2canvas)
     const canvasTop = await html2canvas(mainElement, { y: 0, height: h });
     const canvasBottom = await html2canvas(mainElement, { y: h, height: h });
+    mainElement.classList.add('shadow');
 
      return {
         topData: canvasTop.toDataURL(),

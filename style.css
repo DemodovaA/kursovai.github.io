@@ -9,19 +9,33 @@ body {
     background-color: rgb(215, 240, 243);
 }
 
-.main_content{
-    border-radius: 15px;
-    padding: 2rem;
+.header_content{
+    border-radius: 10px;
+    margin-bottom: 4%;
+    padding: 5%;
     background-color: aliceblue;
     box-shadow: -2px 4px 9px rgb(85, 144, 158);
 }
 
+.main_content{
+    border-radius: 15px;
+    padding: 2rem;
+    background-color: aliceblue;
+}
+
+.shadow{
+    box-shadow: -2px 4px 9px rgb(85, 144, 158);
+}
 .header_h1{
     font-weight: bold;
+    margin: 0%;
+    margin-bottom: 2%;
 }
 
 .header_h2{
     opacity: 0.6;
+    margin: 0%;
+    margin-bottom: 2%;
 }
 
 .text_counter{
@@ -39,8 +53,13 @@ body {
 }
 
 .answer_button{
-    max-width: 100px;
+    background-color: aliceblue;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgb(25, 78, 94);
 }
+
 
 ul{
     list-style-type: none;
