@@ -135,3 +135,11 @@ justify-content: space-between;
     transform: translateY(120vh) rotate(5deg);
     opacity: 0;
 }
+
+.reset_button{
+    background-color: aliceblue;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgb(25, 78, 94);
+}

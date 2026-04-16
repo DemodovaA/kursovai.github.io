@@ -66,6 +66,13 @@ function createTicket(counter, arr) {
             createTicket(counter, quiz)
         } else {
             alert(`Правильных овтетов ${counterRight}`)
+            let btn_rest = document.createElement("button")
+            btn_rest.classList.add("reset_button");
+            btn_rest.textContent = "Начать заново";
+            mainElement.appendChild(btn_rest);
+            btn_rest.addEventListener("click", () => {
+                location.reload();
+        })
         }
     })
     mainElement.appendChild(btn);  
