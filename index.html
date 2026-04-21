@@ -5,12 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="module" defer src="./script.js"></script>
+    <script type="module" defer src="./addVopros.js"></script>
+    <script type="module" defer src="./animation.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./media.css">
+    <script src="https://cloudflare.com"></script>
 </head>
 <body>
-    <header>
+    <header class="header_content">
         <h1 class="header_h1">Викторина</h1>
         <p class="header_h2">Вопросы на самые разные темы</p>
     </header>
+    <main class="main_content shadow">
+        
+    </main>
+    <footer>
+        <div class="button_conteiner">
+         <button id='add_button' class="add_button">Добавление нового вопроса</button>
+         <p class="counter_point" id="counter_point">fffffff</p>
+          </div>
+        <div class='testHide' id='hide'>
+        <div>
+            <label>Текст вопроса:</label>
+            <input type="text" id="questionText" required>
+        </div>
+        <ul>
+        <li>
+            <label>Вариант 1:</label>
+            <input type="text" id="v1" required>
+            <input type="radio" name="correct" value="1" checked> Верный
+        </li>
+        <li>
+            <label>Вариант 2:</label>
+            <input type="text" id="v2" required>
+            <input type="radio" name="correct" value="2"> Верный
+        </li>
+        <li>
+            <label>Вариант 3:</label>
+            <input type="text" id="v3" required>
+            <input type="radio" name="correct" value="3"> Верный
+        </li>
+        <li>
+            <label>Вариант 4:</label>
+            <input type="text" id="v4" required>
+            <input type="radio" name="correct" value="4"> Верный
+        </li>
+        </ul>
+
+        <div id="split-screen">
+    <img id="part-top" class="slice">
+    <img id="part-bottom" class="slice">
+</div>
+    </footer>
 </body>
 </html>

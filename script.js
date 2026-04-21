@@ -1,4 +1,9 @@
+import { animateBlockCut } from './animation.js';
 import quiz from "./quiz.json" with { type: 'json' };
+import { screen_making } from './animation.js';
+
+import html2canvas from './node_modules/html2canvas/dist/html2canvas.esm.js';
+// console.log(quiz.length);
 let counter = 0
 let counterRight = 0
 let currentAnswer = ""
@@ -6,12 +11,14 @@ function createTicket(counter, arr) {
     let el = arr[counter]
     let div = document.createElement("div");
     div.classList.add("conteiner");
-    let h1 = document.createElement("h1")
-    let h2 = document.createElement("h2")
-    div.appendChild(h2)
+    let h1 = document.createElement("h1");
+    let text_counter = document.createElement("p");
+    text_counter.classList.add("text_counter");
+    div.appendChild(text_counter)
     div.appendChild(h1)
     h1.textContent = el["Вопрос"]
-    h2.textContent = "Номер вопроса " + el["Номер вопроса"]
+    text_counter.textContent = "Вопрос " + el["Номер вопроса"] + "/" + quiz.length
+    let list = document.createElement("ul")
     for(let i = 0; i < 4; ++i){
         let input = document.createElement("input")
         input.addEventListener("click", () => {
@@ -22,17 +29,26 @@ function createTicket(counter, arr) {
         ////Создание полей ответов
         let br = document.createElement("br")
         let span = document.createElement("span")
+        span.classList.add("span_text");
         input.setAttribute("type", "radio")
         input.setAttribute("class", "answer_input")
         input.setAttribute("name", el["Номер вопроса"])
-        let label = document.createElement("label")
+        
+        let list_item = document.createElement("li")
         span.textContent = el[`Вариант ${i + 1}`]
-        label.appendChild(input)
-        label.appendChild(span)
-        label.appendChild(br)
-        div.appendChild(label)
+        list_item.appendChild(input)
+        list_item.appendChild(span)
+        list_item.appendChild(br)
+        list.appendChild(list_item)
+        div.appendChild(list)
+
+        
     }
-    document.body.appendChild(div)
+    const mainElement = document.querySelector('main');
+    mainElement.appendChild(div);
+
+    const counter_point = document.getElementById('counter_point');
+    counter_point.textContent = "Правильно: " + counterRight + "/" + quiz.length
 
     let btn = document.createElement("button")
     btn.classList.add("answer_button");
@@ -40,16 +56,28 @@ function createTicket(counter, arr) {
     btn.addEventListener("click", () => {
         if(currentAnswer === el["Верный Вариант"]){
             counterRight++
+        } else{
+             animateBlockCut();
         }
-        document.body.textContent = ""
+        screen_making()
+        mainElement.textContent = ""
         counter++
         if(counter < arr.length){
             createTicket(counter, quiz)
         } else {
             alert(`Правильных овтетов ${counterRight}`)
+            let btn_rest = document.createElement("button")
+            btn_rest.classList.add("reset_button");
+            btn_rest.textContent = "Начать заново";
+            mainElement.appendChild(btn_rest);
+            btn_rest.addEventListener("click", () => {
+                location.reload();
+        })
         }
     })
-    document.body.append(btn)
+    mainElement.appendChild(btn);  
 }
 
 createTicket(counter, quiz)
+
+
