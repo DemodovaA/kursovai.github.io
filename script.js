@@ -2,7 +2,7 @@ import { animateBlockCut } from './animation.js';
 import quiz from "./quiz.json" with { type: 'json' };
 import { screen_making } from './animation.js';
 
-import html2canvas from './librari/html2canvas/dist/html2canvas.esm.js';
+import html2canvas from './node_modules/html2canvas/dist/html2canvas.esm.js';
 // console.log(quiz.length);
 let counter = 0
 let counterRight = 0

@@ -1,4 +1,4 @@
-import html2canvas from './librari/html2canvas/dist/html2canvas.esm.js';
+import html2canvas from './node_modules/html2canvas/dist/html2canvas.esm.js';
 
 export async function screen_making() {
     const myButton = document.querySelector('.text_counter'); 
